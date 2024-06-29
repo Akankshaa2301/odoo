@@ -15,7 +15,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #333;
+            background-color: #c3a2a2;
             padding: 10px 20px;
             position: fixed;
             width: 100%;
@@ -77,6 +77,11 @@
             font-size: 18px;
             color: #333;
         }
+        .bmi-message {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
         @media (max-width: 768px) {
             .navbar a {
                 padding: 10px 15px;
@@ -93,7 +98,7 @@
 <body>
     <div class="navbar">
         <div class="navbar-left">
-            <img src="logo.png" alt="Logo">
+            <img src="logo1.png" alt="Logo">
             <a href="profile.html">Profile</a>
         </div>
         <div>
@@ -112,6 +117,7 @@
             <input type="number" id="height" placeholder="Enter height in cm">
             <button onclick="calculateBMI()">Calculate BMI</button>
             <div class="bmi-result" id="bmi-result"></div>
+            <div class="bmi-message" id="bmi-message"></div>
         </div>
     </div>
 
@@ -123,8 +129,19 @@
                 const heightInMeters = height / 100;
                 const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
                 document.getElementById('bmi-result').innerText = `Your BMI is ${bmi}`;
+                
+                let message = '';
+                if (bmi < 18.5) {
+                    message = 'You are underweight.';
+                } else if (bmi >= 18.5 && bmi <= 24.9) {
+                    message = 'You are healthy.';
+                } else {
+                    message = 'You are overweight.';
+                }
+                document.getElementById('bmi-message').innerText = message;
             } else {
                 document.getElementById('bmi-result').innerText = 'Please enter both weight and height.';
+                document.getElementById('bmi-message').innerText = '';
             }
         }
     </script>

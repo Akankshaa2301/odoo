@@ -15,7 +15,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #333;
+            background-color: #c3a2a2;
             padding: 10px 20px;
             position: fixed;
             width: 100%;
@@ -42,7 +42,7 @@
             border-radius: 4px;
         }
         .background-image {
-            background-image: url('background.jpg');
+            background-image: url('background2.jpg'); 
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -52,15 +52,19 @@
             text-align: center;
             color: white;
             font-size: 24px;
-            padding-top: 70px; /* Offset for fixed navbar */
+            padding-top: 70px; 
         }
         .content {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 8px;
-        }
+    max-width: 600px;
+    margin-left: auto; /* Shift to the right */
+    margin-right: 20px; /* Add some spacing from the right edge */
+    margin-top: -20px; /* Shift up by 20px */
+    background: rgba(65, 22, 22, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+
         h1 {
             font-size: 48px;
             margin-bottom: 20px;
@@ -90,7 +94,7 @@
 <body>
     <div class="navbar">
         <div class="navbar-left">
-            <img src="logo.png" alt="Logo">
+            <img src="logo1.png" alt="Logo">
             <a href="profile.html">Profile</a>
         </div>
         <div>
@@ -103,7 +107,8 @@
     </div>
     <div class="background-image">
         <div class="content">
-            <h1>Welcome to Your Diet Recommendation Site</h1>
+            <h1>Welcome to NutriGuide!!</h1>
+            <p>Start your journey today!</p>
             <p>Get personalized diet plans and nutrition tips.</p>
         </div>
     </div>
