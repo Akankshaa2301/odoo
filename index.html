@@ -22,8 +22,13 @@
             top: 0;
             z-index: 1000;
         }
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
         .navbar img {
             height: 50px;
+            margin-right: 20px;
         }
         .navbar a {
             color: white;
@@ -84,7 +89,10 @@
 </head>
 <body>
     <div class="navbar">
-        <img src="logo.png" alt="Logo">
+        <div class="navbar-left">
+            <img src="logo.png" alt="Logo">
+            <a href="profile.html">Profile</a>
+        </div>
         <div>
             <a href="index.html">Home</a>
             <a href="personalised-diet-plan.html">Personalised Diet Plan</a>
