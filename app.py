@@ -83,7 +83,7 @@ def signup():
 
     return render_template('index.html')
 
-@app.route('/health_info', methods=['POST'])
+@app.route('/profile', methods=['POST'])
 def health_info():
     if request.method == 'POST':
         age = request.form['age']
@@ -128,7 +128,7 @@ def health_info():
             return redirect(url_for('profile'))
         else:
             flash('User session expired. Please login again.')
-            return redirect(url_for('personalized'))
+            return redirect(url_for('nutrition'))
 
     return render_template('diet-plan.html')
 
