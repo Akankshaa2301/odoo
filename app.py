@@ -83,6 +83,55 @@ def signup():
 
     return render_template('index.html')
 
+@app.route('/health_info', methods=['POST'])
+def health_info():
+    if request.method == 'POST':
+        age = request.form['age']
+        gender = request.form['gender']
+        weight = request.form['weight']
+        height = request.form['height']
+        diet = request.form['diet']
+        allergies = request.form['allergies']
+        health_goals = request.form['health-goals']
+
+        # Assuming you have stored the user ID in session after signup or login
+        user_id = session.get('user_id')
+
+        if user_id:
+            # Create or update user profile with health information
+            user_profile = UserProfile.query.filter_by(user_id=user_id).first()
+            if user_profile:
+                # Update existing profile
+                user_profile.age = age
+                user_profile.gender = gender
+                user_profile.weight = weight
+                user_profile.height = height
+                user_profile.dietary_preferences = diet
+                user_profile.allergies = allergies
+                user_profile.health_goals = health_goals
+            else:
+                # Create new profile
+                new_profile = UserProfile(
+                    user_id=user_id,
+                    age=age,
+                    gender=gender,
+                    weight=weight,
+                    height=height,
+                    dietary_preferences=diet,
+                    allergies=allergies,
+                    health_goals=health_goals
+                )
+                db.session.add(new_profile)
+
+            db.session.commit()
+            flash('Health information updated successfully')
+            return redirect(url_for('profile'))
+        else:
+            flash('User session expired. Please login again.')
+            return redirect(url_for('personalized'))
+
+    return render_template('diet-plan.html')
+
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()

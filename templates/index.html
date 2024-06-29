@@ -42,7 +42,7 @@
             border-radius: 4px;
         }
         .background-image {
-            background-image: url('background2.jpg'); 
+            background-image:  url("{{ url_for('static', filename='background2.jpg') }}");
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -94,7 +94,7 @@
 <body>
     <div class="navbar">
         <div class="navbar-left">
-            <img src="logo1.png" alt="Logo">
+            <img src="{{ url_for('static', filename='logo1.png') }}" alt="Logo">
             <a href="profile.html">Profile</a>
         </div>
         <div>
