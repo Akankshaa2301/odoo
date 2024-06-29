@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Information Form</title>
+    <title>Login Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,20 +21,21 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             max-width: 400px;
             width: 100%;
+            text-align: center;
         }
         .form-container h2 {
             margin-bottom: 20px;
         }
         .form-group {
             margin-bottom: 15px;
+            text-align: left;
         }
         .form-group label {
             display: block;
             margin-bottom: 5px;
         }
         .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .form-group select {
             width: 100%;
             padding: 8px;
             border: 1px solid #ccc;
@@ -52,58 +53,76 @@
         .form-group button:hover {
             background-color: #0056b3;
         }
+        .alternative-login {
+            margin-top: 20px;
+        }
+        .alternative-login button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4285F4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .alternative-login button:hover {
+            opacity: 0.9;
+        }
+        .inline {
+            display: flex;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="form-container">
-        <h2>Health Information Form</h2>
-        <form>
+        <h2>Login</h2>
+        <form id="login-form">
             <div class="form-group">
-                <label for="age">Age</label>
-                <input type="number" id="age" name="age" required>
+                <label for="mobile-number">Mobile Number</label>
+                <div class="inline">
+                    <select id="country-code" name="country-code" required>
+                        <option value="+1">+1 (USA)</option>
+                        <option value="+91">+91 (India)</option>
+                        <option value="+44">+44 (UK)</option>
+                        <option value="+61">+61 (Australia)</option>
+                        <!-- Add more country codes as needed -->
+                    </select>
+                    <input type="tel" id="mobile-number" name="mobile-number" pattern="[0-9]{10}" required placeholder="Enter your mobile number">
+                </div>
             </div>
             <div class="form-group">
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender" required>
-                    <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
+                <button type="button" onclick="sendOTP()">Send OTP</button>
             </div>
-            <div class="form-group">
-                <label for="weight">Weight (kg)</label>
-                <input type="number" id="weight" name="weight" required>
-            </div>
-            <div class="form-group">
-                <label for="height">Height (cm)</label>
-                <input type="number" id="height" name="height" required>
-            </div>
-            <div class="form-group">
-                <label for="diet">Dietary Preferences</label>
-                <select id="diet" name="diet" required>
-                    <option value="">Select Preference</option>
-                    <option value="veg">Vegetarian</option>
-                    <option value="non-veg">Non-Vegetarian</option>
-                    <option value="vegan">Vegan</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="allergies">Allergies</label>
-                <textarea id="allergies" name="allergies" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="health-goals">Health Goals</label>
-                <select id="health-goals" name="health-goals" required>
-                    <option value="">Select Goal</option>
-                    <option value="weight-loss">Weight Loss</option>
-                    <option value="health-gain">Health Gain</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <button type="submit">Submit</button>
+            <div id="otp-section" class="form-group" style="display: none;">
+                <label for="otp">Enter OTP</label>
+                <input type="text" id="otp" name="otp" pattern="[0-9]{6}" required>
+                <button type="button" onclick="verifyOTP()">Verify OTP</button>
             </div>
         </form>
+        <div class="alternative-login">
+            <p>or continue with</p>
+            <button type="button" class="google-login" onclick="continueWithGoogle()">Google</button>
+        </div>
     </div>
+
+    <script>
+        function sendOTP() {
+            // Here you would add your code to send an OTP to the mobile number
+            alert('OTP sent to your mobile number.');
+            document.getElementById('otp-section').style.display = 'block';
+        }
+
+        function verifyOTP() {
+            // Here you would add your code to verify the OTP
+            alert('OTP verified.');
+        }
+
+        function continueWithGoogle() {
+            // Here you would add your code to continue with Google
+            alert('Continue with Google.');
+        }
+    </script>
 </body>
 </html>
