@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Information</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #ae6060;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color:#c3a2a2;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar img {
+            height: 50px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: #fff;
+            color: #333;
+            border-radius: 4px;
+        }
+        .content {
+            margin: 100px 20px 20px 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        @media (max-width: 768px) {
+            .navbar a {
+                padding: 10px 15px;
+            }
+            .navbar img {
+                height: 40px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="logo1.png" alt="Logo">
+        <div>
+            <a href="">Home</a>
+            <a href="personalised">Diet Plan</a>
+            <a href="nutrition">Nutrition</a>
+            <a href="account">Account</a>
+            <a href="about_us">About Us</a>
+        </div>
+    </div>
+    <div class="content">
+        <h1>Essential Nutrients for a Healthy Body</h1>
+        <table>
+            <tr>
+                <th>Nutrient</th>
+                <th>Function</th>
+                <th>Sources</th>
+            </tr>
+            <tr>
+                <td>Vitamins</td>
+                <td>Essential for various metabolic processes and overall health.</td>
+                <td>Fruits, vegetables, dairy products, meats.</td>
+            </tr>
+            <tr>
+                <td>Minerals</td>
+                <td>Important for bone health, fluid balance, and muscle function.</td>
+                <td>Nuts, seeds, dairy products, leafy greens.</td>
+            </tr>
+            <tr>
+                <td>Proteins</td>
+                <td>Builds and repairs tissues, and is a crucial part of enzymes and hormones.</td>
+                <td>Meat, fish, eggs, legumes, nuts.</td>
+            </tr>
+            <tr>
+                <td>Carbohydrates</td>
+                <td>Main source of energy for the body.</td>
+                <td>Bread, rice, pasta, fruits, vegetables.</td>
+            </tr>
+            <tr>
+                <td>Fibers</td>
+                <td>Essential for digestive health.</td>
+                <td>Whole grains, fruits, vegetables, legumes.</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Recommendation - Home</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            height: 100%;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #c3a2a2;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar img {
+            height: 50px;
+            margin-right: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: #fff;
+            color: #333;
+            border-radius: 4px;
+        }
+        .background-image {
+            background-image: url('background2.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            padding-top: 70px; 
+        }
+        .content {
+    max-width: 600px;
+    margin-left: auto; /* Shift to the right */
+    margin-right: 20px; /* Add some spacing from the right edge */
+    margin-top: -20px; /* Shift up by 20px */
+    background: rgba(65, 22, 22, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+        }
+        @media (max-width: 768px) {
+            .navbar a {
+                padding: 10px 15px;
+            }
+            .navbar img {
+                height: 40px;
+            }
+            .background-image {
+                font-size: 20px;
+            }
+            h1 {
+                font-size: 36px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="logo1.png" alt="Logo">
+            <a href="profile.html">Profile</a>
+        </div>
+        <div>
+            <a href="">Home</a>
+            <a href="personalised">Personalised Diet Plan</a>
+            <a href="nutrition">Nutrition</a>
+            <a href="account">Account</a>
+            <a href="about_us">About Us</a>
+        </div>
+    </div>
+    <div class="background-image">
+        <div class="content">
+            <h1>Welcome to NutriGuide!!</h1>
+            <p>Start your journey today!</p>
+            <p>Get personalized diet plans and nutrition tips.</p>
+        </div>
+    </div>
+</body>
+</html>

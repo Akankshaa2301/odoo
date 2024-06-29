@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Plan</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #c3a2a2;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar img {
+            height: 50px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: #fff;
+            color: #333;
+            border-radius: 4px;
+        }
+        .content {
+            margin: 100px 20px 20px 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .bmi-calculator {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .bmi-calculator input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .bmi-calculator button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .bmi-calculator button:hover {
+            background-color: #555;
+        }
+        .bmi-result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            .navbar a {
+                padding: 10px 15px;
+            }
+            .navbar img {
+                height: 40px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="logo.png" alt="Logo">
+            <a href="profile">Profile</a>
+        </div>
+        <div>
+            <a href="/">Home</a>
+            <a href="personalised"> Diet Plan</a>
+            <a href="nutrition">Nutrition</a>
+            <a href="account">Account</a>
+            <a href="about_us">About Us</a>
+        </div>
+    </div>
+    <div class="content">
+        <h1>Diet Plan</h1>
+        <div class="bmi-calculator">
+            <h2>BMI Calculator</h2>
+            <input type="number" id="weight" placeholder="Enter weight in kg">
+            <input type="number" id="height" placeholder="Enter height in cm">
+            <button onclick="calculateBMI()">Calculate BMI</button>
+            <div class="bmi-result" id="bmi-result"></div>
+        </div>
+    </div>
+
+    <script>
+        function calculateBMI() {
+            const weight = document.getElementById('weight').value;
+            const height = document.getElementById('height').value;
+            if (weight && height) {
+                const heightInMeters = height / 100;
+                const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+                document.getElementById('bmi-result').innerText = `Your BMI is ${bmi}`;
+                
+                let message = '';
+                if (bmi < 18.5) {
+                    message = 'You are underweight.';
+                } else if (bmi >= 18.5 && bmi <= 24.9) {
+                    message = 'You are healthy.';
+                } else {
+                    message = 'You are overweight.';
+                }
+                document.getElementById('bmi-message').innerText = message;
+            } else {
+                document.getElementById('bmi-result').innerText = 'Please enter both weight and height.';
+                document.getElementById('bmi-message').innerText = '';
+            }
+        }
+    </script>
+</body>
+</html>
